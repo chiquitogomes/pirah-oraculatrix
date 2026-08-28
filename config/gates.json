@@ -1,0 +1,83 @@
+{
+  "schema_version": "1.0.0",
+  "gates": [
+    {
+      "id": "G00",
+      "name": "Escopo, autoridade e consentimento",
+      "approve": "finalidade, partes e uso definidos",
+      "block": "consentimento ou autoridade ausente"
+    },
+    {
+      "id": "G01",
+      "name": "Namespace, isolamento e integridade",
+      "approve": "IDs, hashes e acesso mínimo",
+      "block": "mistura de clientes ou artefato sem lineage"
+    },
+    {
+      "id": "G02",
+      "name": "Dados natais, tempo e geografia",
+      "approve": "cenário temporal/geográfico resolvido",
+      "block": "ambiguidade silenciosa ou precisão inventada"
+    },
+    {
+      "id": "G03",
+      "name": "Reprodutibilidade computacional",
+      "approve": "versões, flags, tolerâncias e fixtures",
+      "block": "cálculo material não reproduzível"
+    },
+    {
+      "id": "G04",
+      "name": "Fontes, citações e proveniência",
+      "approve": "claim ligado a obra, edição e página",
+      "block": "fonte inexistente, inadequada ou não localizada"
+    },
+    {
+      "id": "G05",
+      "name": "Tradições, decks e genealogias",
+      "approve": "namespace e conflitos preservados",
+      "block": "harmonização artificial ou deck incompatível"
+    },
+    {
+      "id": "G06",
+      "name": "Coerência interpretativa",
+      "approve": "método e alternativas explícitos",
+      "block": "claim sem cálculo/método ou contradição ocultada"
+    },
+    {
+      "id": "G07",
+      "name": "Epistemologia, saúde e segurança",
+      "approve": "fato/cálculo/símbolo/inferência separados",
+      "block": "diagnóstico, cura, coerção ou risco material"
+    },
+    {
+      "id": "G08",
+      "name": "Predição, calibração e timing",
+      "approve": "alvo, janela, base rate e configuração congelados",
+      "block": "certeza, look-ahead ou probabilidade não calibrada"
+    },
+    {
+      "id": "G09",
+      "name": "Tarot e protocolo",
+      "approve": "pergunta, método, corte, unicidade e posições",
+      "block": "abertura pré-corte, repetição ou deck não definido"
+    },
+    {
+      "id": "G10",
+      "name": "Editorial, visual e acessibilidade",
+      "approve": "equivalência, escala, contraste e descrições",
+      "block": "distorção, clipping ou dependência só de cor/som"
+    },
+    {
+      "id": "G11",
+      "name": "Comercial, direitos e instrumentação",
+      "approve": "promessa responsável, licenças e métricas",
+      "block": "garantia, direito ausente ou coleta não consentida"
+    },
+    {
+      "id": "G12",
+      "name": "Release independente",
+      "approve": "Q01-Q04 concluídos e manifest imutável",
+      "block": "autoaprovação ou bloqueio aberto"
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "schema_version": "1.0.0",
+  "skills": [
+    {
+      "id": "S01",
+      "name": "intake, consentimento e pseudonimização"
+    },
+    {
+      "id": "S02",
+      "name": "captura bibliográfica e citação"
+    },
+    {
+      "id": "S03",
+      "name": "ledger de claims e classificação epistemológica"
+    },
+    {
+      "id": "S04",
+      "name": "roteamento e contratos de workflow"
+    },
+    {
+      "id": "S05",
+      "name": "seleção de ferramentas e fallback"
+    },
+    {
+      "id": "S06",
+      "name": "comparação de tradições sem harmonização"
+    },
+    {
+      "id": "S07",
+      "name": "síntese natal"
+    },
+    {
+      "id": "S08",
+      "name": "integração temporal e linguagem de incerteza"
+    },
+    {
+      "id": "S09",
+      "name": "protocolo de Tarot do projeto"
+    },
+    {
+      "id": "S10",
+      "name": "visualização e cartografia"
+    },
+    {
+      "id": "S11",
+      "name": "relatório N1-N4 e linguagem clara"
+    },
+    {
+      "id": "S12",
+      "name": "acessibilidade multimodal"
+    },
+    {
+      "id": "S13",
+      "name": "adaptação transmídia"
+    },
+    {
+      "id": "S14",
+      "name": "marketing responsável e pricing"
+    },
+    {
+      "id": "S15",
+      "name": "redação e minimização de dados"
+    },
+    {
+      "id": "S16",
+      "name": "QA, escalada e release"
+    }
+  ]
+}

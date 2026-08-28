@@ -1,0 +1,66 @@
+[
+  {
+    "from": [
+      "C01",
+      "C02"
+    ],
+    "to": "O01",
+    "reason": "mesmos contratos de arquitetura, decisão e escalada; uma fila operacional"
+  },
+  {
+    "from": [
+      "C06",
+      "C34"
+    ],
+    "to": "Q02",
+    "reason": "verificação de evidências é revisão independente, não pesquisa produtora"
+  },
+  {
+    "from": [
+      "C18",
+      "C21"
+    ],
+    "to": "H01",
+    "reason": "história e aplicação ritual segura compartilham corpus; gates impedem promessa"
+  },
+  {
+    "from": [
+      "C22",
+      "C23"
+    ],
+    "to": "T01",
+    "reason": "modos histórico e aplicado; RNG permanece motor separado"
+  },
+  {
+    "from": [
+      "C24",
+      "C25"
+    ],
+    "to": "N01",
+    "reason": "duas lanes internas factuais e simbólicas; frases nunca se misturam"
+  },
+  {
+    "from": [
+      "C26",
+      "C27"
+    ],
+    "to": "E01",
+    "reason": "mesma saída canônica, claim lock e público; Q04 audita"
+  },
+  {
+    "from": [
+      "C28",
+      "C29"
+    ],
+    "to": "V01",
+    "reason": "design e cartografia unificados por semântica; Q01/Q04 auditam"
+  },
+  {
+    "from": [
+      "C31",
+      "C32"
+    ],
+    "to": "M02",
+    "reason": "estratégia e mensuração formam um ciclo; Q04 controla autoavaliação"
+  }
+]

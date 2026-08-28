@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0.0",
+  "bases": [
+    {
+      "id": "B01",
+      "name": "Casos isolados",
+      "scope": "TENANT/CLIENT/CASE/RUN com acesso mínimo"
+    },
+    {
+      "id": "B02",
+      "name": "Fontes e evidências",
+      "scope": "WORK/SOURCE/CLAIM, edições, localizadores e conflitos"
+    },
+    {
+      "id": "B03",
+      "name": "Astronomia, tempo e geografia",
+      "scope": "efemérides, tzdb, calendários, gazetteers, GIS e fixtures"
+    },
+    {
+      "id": "B04",
+      "name": "Métodos astrológicos",
+      "scope": "regras por escola, pré-condições, orbes e incompatibilidades"
+    },
+    {
+      "id": "B05",
+      "name": "Hermetismo e tradições",
+      "scope": "namespaces separados para Hermetismo, GD/Qabalah e Thelema"
+    },
+    {
+      "id": "B06",
+      "name": "Tarot e cartomancias",
+      "scope": "decks por DECK_ID, iconografia, tiragens e Lenormand separado"
+    },
+    {
+      "id": "B07",
+      "name": "Materiais naturais",
+      "scope": "fatos, segurança, usos históricos e correspondências em camadas distintas"
+    },
+    {
+      "id": "B08",
+      "name": "Previsões e outcomes",
+      "scope": "registros congelados, adjudicação, calibração e falhas"
+    },
+    {
+      "id": "B09",
+      "name": "Design system e ativos",
+      "scope": "tokens, cartografia, acessibilidade, licenças e templates"
+    },
+    {
+      "id": "B10",
+      "name": "Produtos, marca e métricas",
+      "scope": "contratos de output, audiência, ofertas, KPIs e campanhas"
+    }
+  ]
+}

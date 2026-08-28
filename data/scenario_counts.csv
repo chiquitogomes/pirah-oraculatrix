@@ -1,0 +1,4 @@
+scenario,agents,motors,bases,skills,gates,relative_cost,use
+Essencial,15,12,7,10,8,1.0,piloto premium de baixo volume
+Profissional recomendada,27,18,10,16,13,1.9,"equilíbrio entre especialização, independência e coordenação"
+Máxima eficiente,42,22,15,24,16,3.4,"alto volume, pesquisa autoral e múltiplos produtos simultâneos"
