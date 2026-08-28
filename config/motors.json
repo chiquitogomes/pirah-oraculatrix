@@ -1,0 +1,167 @@
+{
+  "schema_version": "1.0.0",
+  "motors": [
+    {
+      "id": "M01",
+      "name": "Validador canônico de intake",
+      "input": "dados do caso",
+      "output": "CASE_MANIFEST normalizado",
+      "technique": "JSON Schema e regras de consistência",
+      "tolerance": "zero campo obrigatório inválido aceito",
+      "qa": "G01"
+    },
+    {
+      "id": "M02",
+      "name": "Tempo civil, timezone, calendário e DST",
+      "input": "data/hora/local",
+      "output": "cenários UTC/TT",
+      "technique": "tzdb + autoridade histórica + calendário jurisdicional",
+      "tolerance": "ambiguidade gera ramos; nunca escolha silenciosa",
+      "qa": "G02"
+    },
+    {
+      "id": "M03",
+      "name": "Geocodificação e geodesia",
+      "input": "topônimo/endereço",
+      "output": "WGS84 + raio de incerteza",
+      "technique": "gazetteer e geodesia elipsoidal",
+      "tolerance": "precisão limitada pela fonte; erro interno alvo <=10 m",
+      "qa": "G02/G10"
+    },
+    {
+      "id": "M04",
+      "name": "Efemérides e escalas astronômicas",
+      "input": "JD, corpos, flags",
+      "output": "posições, RA/Dec, velocidades",
+      "technique": "Swiss Ephemeris/JPL versionado",
+      "tolerance": "mesma pilha <=1e-8 graus; cross-check >1 arcsec alerta",
+      "qa": "G03"
+    },
+    {
+      "id": "M05",
+      "name": "Casas, ângulos, aspectos e declinações",
+      "input": "posições e convenções",
+      "output": "cúspides e matrizes",
+      "technique": "geometria sem arredondamento intermediário",
+      "tolerance": "residual interno <=1e-6 graus",
+      "qa": "G03"
+    },
+    {
+      "id": "M06",
+      "name": "Fatores especializados",
+      "input": "catálogos e fórmulas",
+      "output": "lotes, midpoints, estrelas, asteroides, antiscia",
+      "technique": "definições versionadas",
+      "tolerance": "catálogo/epoch obrigatórios; testes de propriedades",
+      "qa": "G03/G05"
+    },
+    {
+      "id": "M07",
+      "name": "Relacional",
+      "input": "dois ChartManifests",
+      "output": "sinastria, composto e Davison",
+      "technique": "média circular e convenções registradas",
+      "tolerance": "reprodução exata na mesma pilha",
+      "qa": "G03"
+    },
+    {
+      "id": "M08",
+      "name": "Temporal moderno",
+      "input": "mapa + intervalo",
+      "output": "trânsitos, progressões, direções e retornos",
+      "technique": "busca de raízes e eventos exatos",
+      "tolerance": "residual <=1e-6 graus e <=1 s quando aplicável",
+      "qa": "G03/G08"
+    },
+    {
+      "id": "M09",
+      "name": "Temporal tradicional",
+      "input": "mapa + regra + datas",
+      "output": "profecções, firdaria e cronocratores",
+      "technique": "limites determinísticos por convenção",
+      "tolerance": "fórmula e unidade obrigatórias",
+      "qa": "G03/G05"
+    },
+    {
+      "id": "M10",
+      "name": "Horária e busca eletiva",
+      "input": "instante ou janela + restrições",
+      "output": "chart ou candidatos",
+      "technique": "busca ampla e refinamento",
+      "tolerance": "todas as restrições verificáveis satisfeitas",
+      "qa": "G03/G08"
+    },
+    {
+      "id": "M11",
+      "name": "Locacional e GIS",
+      "input": "mapa + geometrias",
+      "output": "ACG, parans, Local Space, relocação, distâncias",
+      "technique": "PROJ/GeographicLib/PostGIS",
+      "tolerance": "residual angular <=0.001 graus; incerteza propagada",
+      "qa": "G03/G10"
+    },
+    {
+      "id": "M12",
+      "name": "Sensibilidade e Monte Carlo",
+      "input": "distribuição de hora/local",
+      "output": "estabilidade dos resultados",
+      "technique": "amostragem com seed e N registrados",
+      "tolerance": "erro Monte Carlo alvo <2 p.p.",
+      "qa": "G03/G08"
+    },
+    {
+      "id": "M13",
+      "name": "Convergência preditiva",
+      "input": "testemunhos + pesos pré-fixados",
+      "output": "score e janelas",
+      "technique": "regras versionadas",
+      "tolerance": "soma/pesos verificados; não é probabilidade sem calibração",
+      "qa": "G08"
+    },
+    {
+      "id": "M14",
+      "name": "Backtesting e calibração",
+      "input": "previsões + outcomes",
+      "output": "métricas e curvas",
+      "technique": "splits temporais, Brier/log loss, cobertura",
+      "tolerance": "sem leakage; baseline obrigatório",
+      "qa": "G08"
+    },
+    {
+      "id": "M15",
+      "name": "Tarot RNG e corte",
+      "input": "deck + seed/compromisso + escolha do monte",
+      "output": "ordem auditável sem repetição",
+      "technique": "Fisher-Yates com CSPRNG e recomposição do projeto",
+      "tolerance": "78 únicas; nenhuma abertura pré-corte",
+      "qa": "G09"
+    },
+    {
+      "id": "M16",
+      "name": "Proveniência, IDs, hashes e logs",
+      "input": "artefatos e eventos",
+      "output": "ledger append-only",
+      "technique": "IDs aleatórios, hashes e manifests",
+      "tolerance": "100% dos artefatos críticos versionados",
+      "qa": "G01/G04/G12"
+    },
+    {
+      "id": "M17",
+      "name": "Renderização vetorial e exportação",
+      "input": "spec visual + dados",
+      "output": "SVG/PDF/HTML/media",
+      "technique": "templates e formatos abertos",
+      "tolerance": "sem clipping, escala e fontes preservadas",
+      "qa": "G10"
+    },
+    {
+      "id": "M18",
+      "name": "Analytics e experimentação",
+      "input": "eventos consentidos",
+      "output": "KPIs e testes",
+      "technique": "métricas com denominadores e guardrails",
+      "tolerance": "instrumentação sem duplicação e população definida",
+      "qa": "G11"
+    }
+  ]
+}
