@@ -1,0 +1,22 @@
+{
+  "candidate_roles": 35,
+  "candidate_roles_above_threshold_38": 35,
+  "pairwise_comparisons": 595,
+  "documented_fusions": 8,
+  "recommended_agents": 27,
+  "recommended_motors": 18,
+  "recommended_bases": 10,
+  "recommended_skills": 16,
+  "recommended_gates": 13,
+  "active_agents_min": 7,
+  "active_agents_max": 14,
+  "score_min": 41,
+  "score_median": 46.0,
+  "score_max": 50,
+  "limitations": [
+    "workload, SLA and budget were not supplied",
+    "candidate scores are expert judgments, not empirical performance measures",
+    "PDF containers were sampled and inventoried, not validated work-by-work in full",
+    "architecture remains draft pending synthetic pilots A-H and retrabalho measurement"
+  ]
+}
