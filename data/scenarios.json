@@ -1,0 +1,32 @@
+[
+  {
+    "scenario": "Essencial",
+    "agents": 15,
+    "motors": 12,
+    "bases": 7,
+    "skills": 10,
+    "gates": 8,
+    "relative_cost": 1.0,
+    "use": "piloto premium de baixo volume"
+  },
+  {
+    "scenario": "Profissional recomendada",
+    "agents": 27,
+    "motors": 18,
+    "bases": 10,
+    "skills": 16,
+    "gates": 13,
+    "relative_cost": 1.9,
+    "use": "equilíbrio entre especialização, independência e coordenação"
+  },
+  {
+    "scenario": "Máxima eficiente",
+    "agents": 42,
+    "motors": 22,
+    "bases": 15,
+    "skills": 24,
+    "gates": 16,
+    "relative_cost": 3.4,
+    "use": "alto volume, pesquisa autoral e múltiplos produtos simultâneos"
+  }
+]
