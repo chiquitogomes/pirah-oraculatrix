@@ -1,0 +1,51 @@
+left,right,left_name,right_name,overlap,independence_block
+C01,C02,Direcao Epistemologica e Arquitetura,Orquestracao de Casos e Produtos,100.0,False
+C18,C21,Hermetismo Historico,Magia Planetaria Teurgia e Talismanica,100.0,False
+C22,C23,Tarot Historico Iconografico e Comparativo,Tarot Estrategico e Tecnicas de Tiragem,100.0,False
+C24,C25,Ciencias Naturais Factuais e Seguranca,Correspondencias Naturais e Materiais,100.0,False
+C26,C27,Editor-Chefe e Arquiteto de Conteudo,Editor Tecnico Linguagem Clara e Acessibilidade,100.0,False
+C28,C29,Direcao de Arte e Design System,Cartografia e Visualizacao de Informacao,100.0,False
+C31,C32,Estrategia de Marca Produto e Pricing,Growth Distribuicao e Analytics,100.0,False
+C19,C20,Qabalah Hermetica e Golden Dawn,Thelema Crowley e Thoth,44.3,False
+C11,C12,Astrologia Temporal Moderna,Tecnicas Temporais Tradicionais,43.6,False
+C06,C34,Verificacao Independente de Evidencias e Citacoes,Auditor Astrologico Historico Hermetico e Epistemologico,37.3,False
+C07,C09,Astrologia Natal Integrativa,Astrologia Psicologica e Evolutiva,28.8,False
+C34,C35,Auditor Astrologico Historico Hermetico e Epistemologico,Auditor de Publicacao Etica e Compliance,26.7,False
+C04,C18,Pesquisa Historico-Academica,Hermetismo Historico,25.7,False
+C04,C21,Pesquisa Historico-Academica,Magia Planetaria Teurgia e Talismanica,25.7,False
+C33,C34,Auditor Quantitativo Astronomico e Preditivo,Auditor Astrologico Historico Hermetico e Epistemologico,25.6,False
+C33,C35,Auditor Quantitativo Astronomico e Preditivo,Auditor de Publicacao Etica e Compliance,24.5,False
+C07,C10,Astrologia Natal Integrativa,Astrologia Relacional,20.9,False
+C04,C06,Pesquisa Historico-Academica,Verificacao Independente de Evidencias e Citacoes,20.6,True
+C06,C33,Verificacao Independente de Evidencias e Citacoes,Auditor Quantitativo Astronomico e Preditivo,20.0,False
+C06,C35,Verificacao Independente de Evidencias e Citacoes,Auditor de Publicacao Etica e Compliance,20.0,False
+C07,C08,Astrologia Natal Integrativa,Astrologia Tradicional Helenistica e Medieval,18.8,False
+C08,C09,Astrologia Tradicional Helenistica e Medieval,Astrologia Psicologica e Evolutiva,18.8,False
+C08,C10,Astrologia Tradicional Helenistica e Medieval,Astrologia Relacional,17.9,False
+C09,C10,Astrologia Psicologica e Evolutiva,Astrologia Relacional,17.9,False
+C06,C18,Verificacao Independente de Evidencias e Citacoes,Hermetismo Historico,15.1,True
+C06,C21,Verificacao Independente de Evidencias e Citacoes,Magia Planetaria Teurgia e Talismanica,15.1,True
+C08,C13,Astrologia Tradicional Helenistica e Medieval,Astrologia Horaria e Eletiva,15.1,False
+C04,C05,Pesquisa Historico-Academica,Pesquisa Contemporanea e Profissional,14.1,False
+C07,C14,Astrologia Natal Integrativa,Astrologia Mundana de Acontecimentos e Historica,12.9,False
+C08,C14,Astrologia Tradicional Helenistica e Medieval,Astrologia Mundana de Acontecimentos e Historica,12.9,False
+C09,C14,Astrologia Psicologica e Evolutiva,Astrologia Mundana de Acontecimentos e Historica,12.9,False
+C01,C03,Direcao Epistemologica e Arquitetura,Governanca de Dados Memoria e Privacidade,12.6,False
+C02,C03,Orquestracao de Casos e Produtos,Governanca de Dados Memoria e Privacidade,12.6,False
+C07,C34,Astrologia Natal Integrativa,Auditor Astrologico Historico Hermetico e Epistemologico,12.5,True
+C04,C14,Pesquisa Historico-Academica,Astrologia Mundana de Acontecimentos e Historica,12.2,False
+C10,C14,Astrologia Relacional,Astrologia Mundana de Acontecimentos e Historica,12.2,False
+C07,C13,Astrologia Natal Integrativa,Astrologia Horaria e Eletiva,12.1,False
+C09,C13,Astrologia Psicologica e Evolutiva,Astrologia Horaria e Eletiva,12.1,False
+C06,C14,Verificacao Independente de Evidencias e Citacoes,Astrologia Mundana de Acontecimentos e Historica,11.2,True
+C10,C13,Astrologia Relacional,Astrologia Horaria e Eletiva,11.2,False
+C14,C18,Astrologia Mundana de Acontecimentos e Historica,Hermetismo Historico,11.2,False
+C14,C21,Astrologia Mundana de Acontecimentos e Historica,Magia Planetaria Teurgia e Talismanica,11.2,False
+C03,C35,Governanca de Dados Memoria e Privacidade,Auditor de Publicacao Etica e Compliance,10.8,True
+C19,C22,Qabalah Hermetica e Golden Dawn,Tarot Historico Iconografico e Comparativo,10.0,False
+C19,C23,Qabalah Hermetica e Golden Dawn,Tarot Estrategico e Tecnicas de Tiragem,10.0,False
+C07,C12,Astrologia Natal Integrativa,Tecnicas Temporais Tradicionais,9.2,False
+C08,C12,Astrologia Tradicional Helenistica e Medieval,Tecnicas Temporais Tradicionais,9.2,False
+C12,C13,Tecnicas Temporais Tradicionais,Astrologia Horaria e Eletiva,9.2,False
+C14,C19,Astrologia Mundana de Acontecimentos e Historica,Qabalah Hermetica e Golden Dawn,8.8,False
+C14,C20,Astrologia Mundana de Acontecimentos e Historica,Thelema Crowley e Thoth,8.8,False
