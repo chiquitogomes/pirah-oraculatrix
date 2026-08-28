@@ -1,0 +1,1329 @@
+{
+  "surface": "report",
+  "manifest": {
+    "version": 1,
+    "surface": "report",
+    "title": "Arquitetura do Laboratório Oraculatrix",
+    "description": "Auditoria técnica e blueprints provisórios do laboratório multiagente.",
+    "generatedAt": "2026-08-28T03:26:43Z",
+    "sources": [
+      {
+        "id": "src_report",
+        "label": "Relatório técnico da arquitetura (GitHub, branch provisória)",
+        "href": "https://github.com/chiquitogomes/pirah-oraculatrix/blob/work/laboratorio-arquitetura-v1/docs/architecture_report.md",
+        "query": {
+          "language": "markdown",
+          "description": "Síntese técnica derivada do comando mestre e das seis auditorias temporárias.",
+          "tables_used": [
+            "docs/architecture_report.md"
+          ],
+          "executed_at": "2026-08-28T03:26:43Z"
+        }
+      },
+      {
+        "id": "src_registry_doc",
+        "label": "Registro contratual dos agentes e componentes",
+        "href": "https://github.com/chiquitogomes/pirah-oraculatrix/blob/work/laboratorio-arquitetura-v1/config/agent_registry.json",
+        "query": {
+          "language": "json",
+          "description": "Registro provisório de agentes, motores, bases, skills, gates e matriz de produtos.",
+          "tables_used": [
+            "config/agent_registry.json",
+            "config/motors.json",
+            "config/bases.json",
+            "config/skills.json",
+            "config/gates.json",
+            "config/product_matrix.json"
+          ],
+          "executed_at": "2026-08-28T03:26:43Z"
+        }
+      },
+      {
+        "id": "src_command",
+        "label": "Comando mestre anexado em 28 de agosto de 2026",
+        "query": {
+          "language": "markdown",
+          "description": "Especificação arquitetural fornecida pelo usuário; arquivo privado não publicado.",
+          "executed_at": "2026-08-28T03:26:43Z"
+        }
+      },
+      {
+        "id": "src_headline",
+        "label": "Contagens arquiteturais recomputadas",
+        "href": "https://github.com/chiquitogomes/pirah-oraculatrix/blob/work/laboratorio-arquitetura-v1/data/analysis_summary.json",
+        "query": {
+          "engine": "SQLite",
+          "language": "sql",
+          "sql": "SELECT 27 AS agents, 18 AS motors, 10 AS bases, 16 AS skills, 13 AS gates, 35 AS candidate_roles, 595 AS pairwise_comparisons;",
+          "description": "Contagens da arquitetura profissional e da auditoria.",
+          "tables_used": [
+            "literal_values"
+          ],
+          "metric_definitions": [
+            "agentes = papéis lógicos únicos no registro",
+            "pares = n(n-1)/2 para n=35"
+          ],
+          "executed_at": "2026-08-28T03:26:43Z"
+        }
+      },
+      {
+        "id": "src_scenarios",
+        "label": "Três cenários arquiteturais",
+        "href": "https://github.com/chiquitogomes/pirah-oraculatrix/blob/work/laboratorio-arquitetura-v1/data/scenarios.json",
+        "query": {
+          "engine": "SQLite",
+          "language": "sql",
+          "sql": "WITH source(scenario, agents, motors, bases, skills, gates, relative_cost, use) AS (\n  VALUES\n    ('Essencial', 15, 12, 7, 10, 8, 1.0, 'piloto premium de baixo volume'),\n    ('Profissional recomendada', 27, 18, 10, 16, 13, 1.9, 'equilíbrio entre especialização, independência e coordenação'),\n    ('Máxima eficiente', 42, 22, 15, 24, 16, 3.4, 'alto volume, pesquisa autoral e múltiplos produtos simultâneos')\n)\nSELECT * FROM source;",
+          "description": "Tabela limitada dos cenários essencial, profissional e máximo.",
+          "tables_used": [
+            "literal_values"
+          ],
+          "executed_at": "2026-08-28T03:26:43Z"
+        }
+      },
+      {
+        "id": "src_agents",
+        "label": "Registro dos 27 agentes",
+        "href": "https://github.com/chiquitogomes/pirah-oraculatrix/blob/work/laboratorio-arquitetura-v1/config/agent_registry.json",
+        "query": {
+          "engine": "SQLite",
+          "language": "sql",
+          "sql": "WITH source(id, agent, layer, mission, activation, qa_count) AS (\n  VALUES\n    ('O01', 'Orquestrador-Arquiteto de Casos e Produtos', 'Direção', 'governar método, escopo, roteamento, contratos e síntese do workflow sem ultrapassar gates independentes.', 'Todo produto novo, caso complexo ou conflito de método.', 3),\n    ('R01', 'Pesquisador Histórico-Acadêmico e Genealogista', 'Pesquisa', 'localizar fontes primárias, edições críticas, pesquisa acadêmica e reconstruir genealogias e controvérsias.', 'Alegação histórica, genealogia, tradição ou correspondência relevante.', 2),\n    ('R02', 'Pesquisador Contemporâneo, Profissional, Web e Comunidades', 'Pesquisa', 'mapear literatura profissional, escolas atuais, web especializada, conferências e hipóteses de comunidades.', 'Quando o produto exige prática atual, autor contemporâneo ou técnica emergente.', 2),\n    ('A01', 'Astrólogo Natal Integrativo', 'Astrologia', 'integrar a arquitetura central do mapa e pareceres especializados sem apagar divergências entre escolas.', 'Relatório natal, base de sinastria, previsão ou locacional.', 3),\n    ('A02', 'Astrólogo Tradicional, Helenístico e Medieval', 'Astrologia', 'aplicar linhagens tradicionais em modos isolados, com dignidades, secto, recepções, lotes e regras próprias.', 'Quando o método tradicional integra o produto.', 3),\n    ('A03', 'Astrólogo Psicológico e Evolutivo', 'Astrologia', 'operar modos psicológico e evolutivo separados, como interpretações simbólicas não clínicas.', 'Leitura psicológica ou evolutiva explicitamente pedida.', 3),\n    ('A04', 'Astrólogo Relacional', 'Astrologia', 'integrar sinastria, composto e Davison sob consentimento e sem reduzir pessoas ao vínculo.', 'Sinastria, composto, Davison ou dinâmica de parceria.', 4),\n    ('A05', 'Astrólogo Temporal Moderno', 'Astrologia', 'produzir testemunhos de trânsitos, progressões, direções, arcos e retornos a partir de técnicas congeladas.', 'Previsão anual, mensal, ciclos ou análise de janela.', 3),\n    ('A06', 'Astrólogo Temporal Tradicional', 'Astrologia', 'aplicar profecções, firdaria e cronocratores segundo regras históricas declaradas.', 'Quando técnicas temporais tradicionais forem pertinentes.', 4),\n    ('A07', 'Astrólogo Horário e Eletivo', 'Astrologia', 'operar dois modos mutuamente exclusivos: juízo horário ou busca de eleições viáveis sob restrições reais.', 'Pergunta horária proporcional ou decisão eletiva com restrições.', 4),\n    ('A08', 'Astrólogo Mundano, de Acontecimentos e Histórico', 'Astrologia', 'analisar coletivos e eventos com cronologia factual congelada antes da leitura astrológica.', 'Evento coletivo, cronologia ou caso histórico complexo.', 4),\n    ('A09', 'Astrólogo Locacional e Cartográfico', 'Astrologia', 'integrar astrocartografia, relocação, Local Space, parans e comparação de lugares com incerteza propagada.', 'Astrocartografia, relocação ou comparação de cidades.', 4),\n    ('P01', 'Integrador Preditivo e de Timing', 'Previsão', 'comparar convergência, divergência, gatilhos e janelas sem recalcular ou escolher técnicas após o resultado.', 'Produto preditivo ou decisão temporal com múltiplas técnicas.', 3),\n    ('P02', 'Auditor de Calibração e Backtesting', 'Previsão', 'medir desempenho prospectivo, falsos positivos, taxas de base, timing e robustez fora da amostra.', 'Após desfecho observável ou antes de alegar desempenho.', 3),\n    ('H01', 'Historiador do Hermetismo, Magia Planetária e Teurgia', 'Hermetismo', 'contextualizar Hermetismo tardo-antigo, renascentista, magia planetária, teurgia e talismânica com desenho ritual seguro.', 'Relatório hermético, mágico ou ritual historicamente fundamentado.', 3),\n    ('H02', 'Especialista em Qabalah Hermética e Golden Dawn', 'Hermetismo', 'interpretar Árvore, caminhos, letras, escalas, decanatos e correspondências GD como sistema próprio.', 'Produto GD, qabalístico, decânico ou correspondencial.', 3),\n    ('H03', 'Especialista em Thelema, Crowley e Thoth', 'Hermetismo', 'interpretar Liber 777, Book of Thoth e correspondências thelêmicas sem universalizá-las.', 'Produto thelêmico, Thoth ou comparação GD-Thelema.', 3),\n    ('T01', 'Especialista em História, Sistemas e Método do Tarot', 'Tarot', 'operar história/iconografia e leitura estratégica em modos separados, incluindo o protocolo de tiragem do projeto.', 'Leitura tarológica ou integração Tarot×astrologia explicitamente pedida.', 4),\n    ('N01', 'Especialista em Ciências e Correspondências Naturais', 'Materiais naturais', 'manter lanes separadas para mineralogia/botânica/segurança e para usos históricos e correspondências esotéricas.', 'Relatório de cristais, ervas, metais, incensos, óleos ou correspondências.', 3),\n    ('E01', 'Editor-Chefe, Técnico e de Acessibilidade', 'Editorial', 'transformar claims aprovados em pacote editorial canônico e versões N1-N4 sem alterar significado ou confiança.', 'Todo produto destinado a cliente ou publicação.', 3),\n    ('V01', 'Designer de Informação, Cartógrafo e Diretor de Arte', 'Visual', 'governar design system, cartografia, visualização e direção visual sem distorcer escala, incerteza ou semântica.', 'Produto com mapa, gráfico, diagrama, identidade ou peça visual.', 3),\n    ('M01', 'Produtor de Adaptação Multimídia', 'Mídia e marketing', 'converter o pacote editorial aprovado em carrossel, vídeo, podcast, quadrinho, flyer e landing page sem mudar claims.', 'Campanha ou adaptação multimídia aprovada.', 3),\n    ('M02', 'Estrategista de Marca, Produto, Marketing e Analytics', 'Mídia e marketing', 'definir audiência, proposta de valor, oferta, canais, pricing, métricas e experimentos sem inflar certeza.', 'Produto comercial, campanha, pricing ou análise de desempenho.', 3),\n    ('Q01', 'Auditor Computacional, Astronômico e de Reprodutibilidade', 'QA', 'recomputar amostras críticas, conferir inputs, versões, tolerâncias, GIS, gráficos e métricas preditivas.', 'Antes de qualquer interpretação ou entrega baseada em cálculo.', 5),\n    ('Q02', 'Auditor de Evidências, Astrologia, História e Tradições', 'QA', 'verificar citações, entailment, coerência astrológica, genealogias e separação Hermetismo-GD-Thelema-Tarot.', 'Antes do claim freeze editorial.', 3),\n    ('Q03', 'Auditor Epistemológico, Preditivo, de Privacidade e Segurança', 'QA', 'separar fato/cálculo/símbolo/inferência, controlar incerteza, consentimento, memória, saúde e segurança ritual.', 'Produto sensível, preditivo, relacional, natural, ritual ou com dados pessoais.', 5),\n    ('Q04', 'Auditor Editorial, Visual, Comercial e de Release', 'QA', 'aprovar, devolver ou bloquear o artefato final por fidelidade, acessibilidade, cartografia, promessa, direitos e integridade de release.', 'Toda entrega externa ou publicação.', 4)\n)\nSELECT * FROM source;",
+          "description": "Projeção auditável do registro de agentes.",
+          "tables_used": [
+            "literal_values"
+          ],
+          "executed_at": "2026-08-28T03:26:43Z"
+        }
+      },
+      {
+        "id": "src_gates",
+        "label": "Registro dos treze gates",
+        "href": "https://github.com/chiquitogomes/pirah-oraculatrix/blob/work/laboratorio-arquitetura-v1/config/gates.json",
+        "query": {
+          "engine": "SQLite",
+          "language": "sql",
+          "sql": "WITH source(id, gate, approve, block) AS (\n  VALUES\n    ('G00', 'Escopo, autoridade e consentimento', 'finalidade, partes e uso definidos', 'consentimento ou autoridade ausente'),\n    ('G01', 'Namespace, isolamento e integridade', 'IDs, hashes e acesso mínimo', 'mistura de clientes ou artefato sem lineage'),\n    ('G02', 'Dados natais, tempo e geografia', 'cenário temporal/geográfico resolvido', 'ambiguidade silenciosa ou precisão inventada'),\n    ('G03', 'Reprodutibilidade computacional', 'versões, flags, tolerâncias e fixtures', 'cálculo material não reproduzível'),\n    ('G04', 'Fontes, citações e proveniência', 'claim ligado a obra, edição e página', 'fonte inexistente, inadequada ou não localizada'),\n    ('G05', 'Tradições, decks e genealogias', 'namespace e conflitos preservados', 'harmonização artificial ou deck incompatível'),\n    ('G06', 'Coerência interpretativa', 'método e alternativas explícitos', 'claim sem cálculo/método ou contradição ocultada'),\n    ('G07', 'Epistemologia, saúde e segurança', 'fato/cálculo/símbolo/inferência separados', 'diagnóstico, cura, coerção ou risco material'),\n    ('G08', 'Predição, calibração e timing', 'alvo, janela, base rate e configuração congelados', 'certeza, look-ahead ou probabilidade não calibrada'),\n    ('G09', 'Tarot e protocolo', 'pergunta, método, corte, unicidade e posições', 'abertura pré-corte, repetição ou deck não definido'),\n    ('G10', 'Editorial, visual e acessibilidade', 'equivalência, escala, contraste e descrições', 'distorção, clipping ou dependência só de cor/som'),\n    ('G11', 'Comercial, direitos e instrumentação', 'promessa responsável, licenças e métricas', 'garantia, direito ausente ou coleta não consentida'),\n    ('G12', 'Release independente', 'Q01-Q04 concluídos e manifest imutável', 'autoaprovação ou bloqueio aberto')\n)\nSELECT * FROM source;",
+          "description": "Critérios de aprovação e bloqueio por gate.",
+          "tables_used": [
+            "literal_values"
+          ],
+          "executed_at": "2026-08-28T03:26:43Z"
+        }
+      },
+      {
+        "id": "src_product",
+        "label": "Carga de agentes por produto",
+        "href": "https://github.com/chiquitogomes/pirah-oraculatrix/blob/work/laboratorio-arquitetura-v1/data/product_active_counts.csv",
+        "query": {
+          "engine": "SQLite",
+          "language": "sql",
+          "sql": "WITH source(product, active_agents) AS (\n  VALUES\n    ('acontecimentos', 14),\n    ('hermetico', 12),\n    ('previsao', 12),\n    ('locacional', 11),\n    ('natal', 11),\n    ('sinastria', 9),\n    ('midia', 8),\n    ('marketing', 7)\n)\nSELECT * FROM source;",
+          "description": "Contagem dos agentes acionados por padrão em cada família de produto.",
+          "tables_used": [
+            "literal_values"
+          ],
+          "metric_definitions": [
+            "active_agents = número de IDs únicos na matriz agente × produto"
+          ],
+          "executed_at": "2026-08-28T03:26:43Z"
+        }
+      },
+      {
+        "id": "src_scores",
+        "label": "Escores das 35 candidaturas",
+        "href": "https://github.com/chiquitogomes/pirah-oraculatrix/blob/work/laboratorio-arquitetura-v1/data/candidate_scores.csv",
+        "query": {
+          "engine": "SQLite",
+          "language": "sql",
+          "sql": "WITH source(candidate_id, candidate, score, final_id, disposition) AS (\n  VALUES\n    ('C01', 'Direcao Epistemologica e Arquitetura', 47, 'O01', 'FUSE'),\n    ('C02', 'Orquestracao de Casos e Produtos', 46, 'O01', 'FUSE'),\n    ('C03', 'Governanca de Dados Memoria e Privacidade', 47, 'Q03', 'REORGANIZE'),\n    ('C04', 'Pesquisa Historico-Academica', 44, 'R01', 'KEEP'),\n    ('C05', 'Pesquisa Contemporanea e Profissional', 41, 'R02', 'KEEP'),\n    ('C06', 'Verificacao Independente de Evidencias e Citacoes', 47, 'Q02', 'MERGE_QA'),\n    ('C07', 'Astrologia Natal Integrativa', 45, 'A01', 'KEEP'),\n    ('C08', 'Astrologia Tradicional Helenistica e Medieval', 44, 'A02', 'KEEP'),\n    ('C09', 'Astrologia Psicologica e Evolutiva', 43, 'A03', 'KEEP_MODES'),\n    ('C10', 'Astrologia Relacional', 44, 'A04', 'KEEP'),\n    ('C11', 'Astrologia Temporal Moderna', 48, 'A05', 'KEEP'),\n    ('C12', 'Tecnicas Temporais Tradicionais', 48, 'A06', 'KEEP'),\n    ('C13', 'Astrologia Horaria e Eletiva', 44, 'A07', 'KEEP_MODES'),\n    ('C14', 'Astrologia Mundana de Acontecimentos e Historica', 46, 'A08', 'KEEP'),\n    ('C15', 'Astrologia Locacional e Cartografica', 50, 'A09', 'KEEP'),\n    ('C16', 'Integracao Preditiva e Timing', 49, 'P01', 'KEEP'),\n    ('C17', 'Calibracao e Backtesting', 50, 'P02', 'KEEP'),\n    ('C18', 'Hermetismo Historico', 44, 'H01', 'FUSE'),\n    ('C19', 'Qabalah Hermetica e Golden Dawn', 45, 'H02', 'KEEP'),\n    ('C20', 'Thelema Crowley e Thoth', 45, 'H03', 'KEEP'),\n    ('C21', 'Magia Planetaria Teurgia e Talismanica', 43, 'H01', 'FUSE'),\n    ('C22', 'Tarot Historico Iconografico e Comparativo', 41, 'T01', 'FUSE'),\n    ('C23', 'Tarot Estrategico e Tecnicas de Tiragem', 45, 'T01', 'FUSE'),\n    ('C24', 'Ciencias Naturais Factuais e Seguranca', 46, 'N01', 'FUSE_MODES'),\n    ('C25', 'Correspondencias Naturais e Materiais', 46, 'N01', 'FUSE_MODES'),\n    ('C26', 'Editor-Chefe e Arquiteto de Conteudo', 46, 'E01', 'FUSE'),\n    ('C27', 'Editor Tecnico Linguagem Clara e Acessibilidade', 46, 'E01', 'FUSE'),\n    ('C28', 'Direcao de Arte e Design System', 46, 'V01', 'FUSE'),\n    ('C29', 'Cartografia e Visualizacao de Informacao', 50, 'V01', 'FUSE'),\n    ('C30', 'Produtor Transmidia', 47, 'M01', 'KEEP'),\n    ('C31', 'Estrategia de Marca Produto e Pricing', 46, 'M02', 'FUSE'),\n    ('C32', 'Growth Distribuicao e Analytics', 48, 'M02', 'FUSE'),\n    ('C33', 'Auditor Quantitativo Astronomico e Preditivo', 48, 'Q01', 'KEEP'),\n    ('C34', 'Auditor Astrologico Historico Hermetico e Epistemologico', 47, 'Q02', 'EXPAND'),\n    ('C35', 'Auditor de Publicacao Etica e Compliance', 48, 'Q03_Q04', 'SPLIT')\n)\nSELECT * FROM source;",
+          "description": "Escores e destino arquitetural das candidaturas.",
+          "tables_used": [
+            "literal_values"
+          ],
+          "metric_definitions": [
+            "score = soma de dez critérios de 0 a 5"
+          ],
+          "executed_at": "2026-08-28T03:26:43Z"
+        }
+      }
+    ],
+    "cards": [
+      {
+        "id": "card_agents",
+        "dataset": "headline",
+        "sourceId": "src_headline",
+        "description": "Papéis lógicos da arquitetura profissional.",
+        "metrics": [
+          {
+            "label": "Agentes",
+            "field": "agents",
+            "format": "number"
+          }
+        ]
+      },
+      {
+        "id": "card_motors",
+        "dataset": "headline",
+        "sourceId": "src_headline",
+        "description": "Cálculos e serviços repetíveis.",
+        "metrics": [
+          {
+            "label": "Motores",
+            "field": "motors",
+            "format": "number"
+          }
+        ]
+      },
+      {
+        "id": "card_bases",
+        "dataset": "headline",
+        "sourceId": "src_headline",
+        "description": "Namespaces e registros versionados.",
+        "metrics": [
+          {
+            "label": "Bases",
+            "field": "bases",
+            "format": "number"
+          }
+        ]
+      },
+      {
+        "id": "card_skills",
+        "dataset": "headline",
+        "sourceId": "src_headline",
+        "description": "Capacidades compartilhadas entre agentes.",
+        "metrics": [
+          {
+            "label": "Skills",
+            "field": "skills",
+            "format": "number"
+          }
+        ]
+      },
+      {
+        "id": "card_gates",
+        "dataset": "headline",
+        "sourceId": "src_headline",
+        "description": "Checkpoints com poder de aprovar, devolver ou bloquear.",
+        "metrics": [
+          {
+            "label": "Gates",
+            "field": "gates",
+            "format": "number"
+          }
+        ]
+      }
+    ],
+    "charts": [
+      {
+        "id": "chart_scenarios",
+        "title": "Quantidade de agentes por cenário",
+        "subtitle": "15 no piloto essencial, 27 no equilíbrio profissional e 42 no laboratório máximo",
+        "intent": "comparison",
+        "question": "Como a quantidade de agentes cresce entre os três níveis arquiteturais?",
+        "rationale": "Barras permitem comparar três categorias discretas com zero explícito.",
+        "type": "bar",
+        "dataset": "scenarios",
+        "sourceId": "src_scenarios",
+        "encodings": {
+          "x": {
+            "field": "scenario",
+            "type": "nominal",
+            "label": "Cenário"
+          },
+          "y": {
+            "field": "agents",
+            "type": "quantitative",
+            "label": "Agentes"
+          },
+          "tooltip": [
+            {
+              "field": "motors",
+              "type": "quantitative",
+              "label": "Motores"
+            },
+            {
+              "field": "gates",
+              "type": "quantitative",
+              "label": "Gates"
+            },
+            {
+              "field": "relative_cost",
+              "type": "quantitative",
+              "label": "Custo relativo"
+            }
+          ]
+        },
+        "xAxisTitle": "Cenário",
+        "yAxisTitle": "Agentes lógicos",
+        "valueFormat": "number",
+        "layout": "full",
+        "maxRows": 3
+      },
+      {
+        "id": "chart_product_load",
+        "title": "Agentes ativos por família de produto",
+        "subtitle": "O acionamento seletivo evita mobilizar os 27 agentes em cada caso",
+        "intent": "comparison",
+        "question": "Quantos agentes são acionados por padrão em cada família de produto?",
+        "rationale": "Barras com categorias discretas mostram a amplitude operacional sem sugerir tendência temporal.",
+        "type": "bar",
+        "dataset": "product_load",
+        "sourceId": "src_product",
+        "encodings": {
+          "x": {
+            "field": "product",
+            "type": "nominal",
+            "label": "Produto"
+          },
+          "y": {
+            "field": "active_agents",
+            "type": "quantitative",
+            "label": "Agentes ativos"
+          }
+        },
+        "xAxisTitle": "Família de produto",
+        "yAxisTitle": "Agentes ativos",
+        "valueFormat": "number",
+        "layout": "full",
+        "maxRows": 8
+      }
+    ],
+    "tables": [
+      {
+        "id": "table_agents",
+        "title": "Registro dos 27 agentes",
+        "subtitle": "Papéis lógicos da arquitetura profissional recomendada, em estado DRAFT",
+        "dataset": "agents",
+        "sourceId": "src_agents",
+        "defaultSort": {
+          "field": "id",
+          "direction": "asc"
+        },
+        "density": "dense",
+        "layout": "full",
+        "columns": [
+          {
+            "field": "id",
+            "label": "ID",
+            "type": "text"
+          },
+          {
+            "field": "agent",
+            "label": "Agente",
+            "type": "text"
+          },
+          {
+            "field": "layer",
+            "label": "Camada",
+            "type": "text"
+          },
+          {
+            "field": "mission",
+            "label": "Missão",
+            "type": "text"
+          },
+          {
+            "field": "activation",
+            "label": "Acionamento",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "id": "table_gates",
+        "title": "Gates de qualidade",
+        "subtitle": "Treze checkpoints com critérios explícitos de aprovação e bloqueio",
+        "dataset": "gates",
+        "sourceId": "src_gates",
+        "defaultSort": {
+          "field": "id",
+          "direction": "asc"
+        },
+        "density": "spacious",
+        "layout": "full",
+        "columns": [
+          {
+            "field": "id",
+            "label": "Gate",
+            "type": "text"
+          },
+          {
+            "field": "gate",
+            "label": "Nome",
+            "type": "text"
+          },
+          {
+            "field": "approve",
+            "label": "Aprova quando",
+            "type": "text"
+          },
+          {
+            "field": "block",
+            "label": "Bloqueia quando",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "id": "table_scores",
+        "title": "Candidaturas e destino arquitetural",
+        "subtitle": "35 papéis pontuados de 0 a 50 antes das fusões e reorganizações",
+        "dataset": "candidate_scores",
+        "sourceId": "src_scores",
+        "defaultSort": {
+          "field": "score",
+          "direction": "desc"
+        },
+        "density": "dense",
+        "layout": "full",
+        "columns": [
+          {
+            "field": "candidate_id",
+            "label": "ID",
+            "type": "text"
+          },
+          {
+            "field": "candidate",
+            "label": "Candidatura",
+            "type": "text"
+          },
+          {
+            "field": "score",
+            "label": "Score",
+            "type": "number"
+          },
+          {
+            "field": "final_id",
+            "label": "Destino",
+            "type": "text"
+          },
+          {
+            "field": "disposition",
+            "label": "Decisão",
+            "type": "text"
+          }
+        ]
+      }
+    ],
+    "blocks": [
+      {
+        "id": "title",
+        "type": "markdown",
+        "body": "# Arquitetura do Laboratório Oraculatrix",
+        "layout": "full"
+      },
+      {
+        "id": "technical_summary",
+        "type": "markdown",
+        "sourceId": "src_report",
+        "body": "## A menor arquitetura profissional contém 27 agentes lógicos\n\n**Resultado.** O núcleo recomendado combina 27 agentes, 18 motores, 10 bases, 16 skills e 13 gates. A equipe não é acionada inteira: cada produto mobiliza somente 7–14 agentes.\n\n**Decisão.** Os blueprints permanecem `DRAFT_ARCHITECTURE_V1`; seis auditores temporários foram usados para decompor e testar a arquitetura, mas nenhum agente definitivo foi congelado.\n\n**Limite.** Motores são reprodutíveis e fail-closed, não “infalíveis”; interpretação simbólica e previsão não se tornam fatos científicos.",
+        "layout": "full"
+      },
+      {
+        "id": "headline_metrics",
+        "type": "metric-strip",
+        "cardIds": [
+          "card_agents",
+          "card_motors",
+          "card_bases",
+          "card_skills",
+          "card_gates"
+        ],
+        "layout": "full"
+      },
+      {
+        "id": "method_result",
+        "type": "markdown",
+        "sourceId": "src_scores",
+        "body": "## O teste de 595 pares eliminou oito redundâncias\n\nTrinta e cinco candidaturas ultrapassaram o limiar indicativo de 38/50. A comparação par-a-par ponderou função, fontes, ferramentas e outputs. Oito fusões governadas reduziram o desenho para 27 papéis, sem fundir produção e auditoria nem Golden Dawn e Thelema. A mediana dos escores foi 46/50; esses números são julgamentos estruturados, não desempenho empírico.",
+        "layout": "full"
+      },
+      {
+        "id": "scenario_chart",
+        "type": "chart",
+        "chartId": "chart_scenarios",
+        "layout": "full"
+      },
+      {
+        "id": "scope_definition",
+        "type": "markdown",
+        "sourceId": "src_report",
+        "body": "## Agente é julgamento; motor é cálculo; base é memória; gate é controle\n\nO filtro tipológico ocorre antes do score. Geocodificação, timezone, efemérides, casas, scoring, sorteio do Tarot, hashes, renderização e analytics não viram agentes. Bases armazenam conhecimento; skills reutilizam procedimentos; gates aprovam, devolvem ou bloqueiam. A confiança é um vetor — input, matemática, fontes, método, tradição, estabilidade, convergência, calibração, interpretação, privacidade e entrega — e nunca um único score mágico.",
+        "layout": "full"
+      },
+      {
+        "id": "agents_section",
+        "type": "markdown",
+        "sourceId": "src_registry_doc",
+        "body": "## Os 27 agentes cobrem direção, pesquisa, astrologia, Hermetismo, Tarot, edição e QA\n\nCada blueprint define missão exclusiva, limites, inputs, outputs, fontes, ferramentas, memória, dependências, gates, blockers e prompt-base. O conjunto completo está na tabela e no registro contratual versionado.",
+        "layout": "full"
+      },
+      {
+        "id": "agents_table",
+        "type": "table",
+        "tableId": "table_agents",
+        "layout": "full"
+      },
+      {
+        "id": "selective_activation",
+        "type": "markdown",
+        "sourceId": "src_registry_doc",
+        "body": "## O acionamento seletivo mantém a coordenação abaixo do custo de especialização\n\nCasos natais e relacionais usam o núcleo mais compacto; eventos históricos e previsões mobilizam mais revisores e especialistas. O gráfico mostra a carga-padrão por família, antes de escaladas por risco ou lacuna.",
+        "layout": "full"
+      },
+      {
+        "id": "product_chart",
+        "type": "chart",
+        "chartId": "chart_product_load",
+        "layout": "full"
+      },
+      {
+        "id": "gate_section",
+        "type": "markdown",
+        "sourceId": "src_registry_doc",
+        "body": "## Treze gates impedem autoaprovação e mistura epistemológica\n\nQ01 recompõe cálculo; Q02 verifica evidências, astrologia e tradições; Q03 controla epistemologia, previsão, privacidade e segurança; Q04 libera a entrega editorial, visual e comercial. Privacidade, contaminação entre clientes e segurança não admitem override automático.",
+        "layout": "full"
+      },
+      {
+        "id": "gates_table",
+        "type": "table",
+        "tableId": "table_gates",
+        "layout": "full"
+      },
+      {
+        "id": "source_model",
+        "type": "markdown",
+        "sourceId": "src_command",
+        "body": "## O corpus precisa ser atomizado por obra, edição e página\n\nOs PDFs são contêineres compostos, não bases homogêneas. O modelo rejeita uma hierarquia A–F linear e avalia tipo de registro e aptidão da fonte para cada claim. Fonte primária prova o que um autor afirmou; não prova automaticamente antiguidade, eficácia ou genealogia. Traduções automáticas, guidebooks e alegações modernas de saúde permanecem segregados. Nenhum conteúdo integral do corpus foi publicado.",
+        "layout": "full"
+      },
+      {
+        "id": "limitations",
+        "type": "markdown",
+        "sourceId": "src_report",
+        "body": "## A recomendação é robusta como arquitetura, mas ainda não como operação\n\n**Limitações.** Não foram fornecidos volume, SLA, orçamento ou frequência dos produtos; o corpus foi inventariado e amostrado, não validado integralmente obra a obra; os escores são julgamento especializado; o notebook não pôde executar em Jupyter porque o ambiente não inclui Jupyter/nbformat, embora `run_analysis.py` tenha recomposto os totais.\n\n**Próximo gate.** Executar pilotos sintéticos A–H, medir retrabalho e taxa de devolução, testar isolamento e licenciamento, e só então promover os blueprints de `DRAFT` a operacionais.",
+        "layout": "full"
+      }
+    ]
+  },
+  "snapshot": {
+    "version": 1,
+    "generatedAt": "2026-08-28T03:26:43Z",
+    "status": "ready",
+    "datasets": {
+      "headline": [
+        {
+          "agents": 27,
+          "motors": 18,
+          "bases": 10,
+          "skills": 16,
+          "gates": 13,
+          "candidate_roles": 35,
+          "pairwise_comparisons": 595
+        }
+      ],
+      "scenarios": [
+        {
+          "scenario": "Essencial",
+          "agents": 15,
+          "motors": 12,
+          "bases": 7,
+          "skills": 10,
+          "gates": 8,
+          "relative_cost": 1.0,
+          "use": "piloto premium de baixo volume"
+        },
+        {
+          "scenario": "Profissional recomendada",
+          "agents": 27,
+          "motors": 18,
+          "bases": 10,
+          "skills": 16,
+          "gates": 13,
+          "relative_cost": 1.9,
+          "use": "equilíbrio entre especialização, independência e coordenação"
+        },
+        {
+          "scenario": "Máxima eficiente",
+          "agents": 42,
+          "motors": 22,
+          "bases": 15,
+          "skills": 24,
+          "gates": 16,
+          "relative_cost": 3.4,
+          "use": "alto volume, pesquisa autoral e múltiplos produtos simultâneos"
+        }
+      ],
+      "agents": [
+        {
+          "id": "O01",
+          "agent": "Orquestrador-Arquiteto de Casos e Produtos",
+          "layer": "Direção",
+          "mission": "governar método, escopo, roteamento, contratos e síntese do workflow sem ultrapassar gates independentes.",
+          "activation": "Todo produto novo, caso complexo ou conflito de método.",
+          "qa_count": 3
+        },
+        {
+          "id": "R01",
+          "agent": "Pesquisador Histórico-Acadêmico e Genealogista",
+          "layer": "Pesquisa",
+          "mission": "localizar fontes primárias, edições críticas, pesquisa acadêmica e reconstruir genealogias e controvérsias.",
+          "activation": "Alegação histórica, genealogia, tradição ou correspondência relevante.",
+          "qa_count": 2
+        },
+        {
+          "id": "R02",
+          "agent": "Pesquisador Contemporâneo, Profissional, Web e Comunidades",
+          "layer": "Pesquisa",
+          "mission": "mapear literatura profissional, escolas atuais, web especializada, conferências e hipóteses de comunidades.",
+          "activation": "Quando o produto exige prática atual, autor contemporâneo ou técnica emergente.",
+          "qa_count": 2
+        },
+        {
+          "id": "A01",
+          "agent": "Astrólogo Natal Integrativo",
+          "layer": "Astrologia",
+          "mission": "integrar a arquitetura central do mapa e pareceres especializados sem apagar divergências entre escolas.",
+          "activation": "Relatório natal, base de sinastria, previsão ou locacional.",
+          "qa_count": 3
+        },
+        {
+          "id": "A02",
+          "agent": "Astrólogo Tradicional, Helenístico e Medieval",
+          "layer": "Astrologia",
+          "mission": "aplicar linhagens tradicionais em modos isolados, com dignidades, secto, recepções, lotes e regras próprias.",
+          "activation": "Quando o método tradicional integra o produto.",
+          "qa_count": 3
+        },
+        {
+          "id": "A03",
+          "agent": "Astrólogo Psicológico e Evolutivo",
+          "layer": "Astrologia",
+          "mission": "operar modos psicológico e evolutivo separados, como interpretações simbólicas não clínicas.",
+          "activation": "Leitura psicológica ou evolutiva explicitamente pedida.",
+          "qa_count": 3
+        },
+        {
+          "id": "A04",
+          "agent": "Astrólogo Relacional",
+          "layer": "Astrologia",
+          "mission": "integrar sinastria, composto e Davison sob consentimento e sem reduzir pessoas ao vínculo.",
+          "activation": "Sinastria, composto, Davison ou dinâmica de parceria.",
+          "qa_count": 4
+        },
+        {
+          "id": "A05",
+          "agent": "Astrólogo Temporal Moderno",
+          "layer": "Astrologia",
+          "mission": "produzir testemunhos de trânsitos, progressões, direções, arcos e retornos a partir de técnicas congeladas.",
+          "activation": "Previsão anual, mensal, ciclos ou análise de janela.",
+          "qa_count": 3
+        },
+        {
+          "id": "A06",
+          "agent": "Astrólogo Temporal Tradicional",
+          "layer": "Astrologia",
+          "mission": "aplicar profecções, firdaria e cronocratores segundo regras históricas declaradas.",
+          "activation": "Quando técnicas temporais tradicionais forem pertinentes.",
+          "qa_count": 4
+        },
+        {
+          "id": "A07",
+          "agent": "Astrólogo Horário e Eletivo",
+          "layer": "Astrologia",
+          "mission": "operar dois modos mutuamente exclusivos: juízo horário ou busca de eleições viáveis sob restrições reais.",
+          "activation": "Pergunta horária proporcional ou decisão eletiva com restrições.",
+          "qa_count": 4
+        },
+        {
+          "id": "A08",
+          "agent": "Astrólogo Mundano, de Acontecimentos e Histórico",
+          "layer": "Astrologia",
+          "mission": "analisar coletivos e eventos com cronologia factual congelada antes da leitura astrológica.",
+          "activation": "Evento coletivo, cronologia ou caso histórico complexo.",
+          "qa_count": 4
+        },
+        {
+          "id": "A09",
+          "agent": "Astrólogo Locacional e Cartográfico",
+          "layer": "Astrologia",
+          "mission": "integrar astrocartografia, relocação, Local Space, parans e comparação de lugares com incerteza propagada.",
+          "activation": "Astrocartografia, relocação ou comparação de cidades.",
+          "qa_count": 4
+        },
+        {
+          "id": "P01",
+          "agent": "Integrador Preditivo e de Timing",
+          "layer": "Previsão",
+          "mission": "comparar convergência, divergência, gatilhos e janelas sem recalcular ou escolher técnicas após o resultado.",
+          "activation": "Produto preditivo ou decisão temporal com múltiplas técnicas.",
+          "qa_count": 3
+        },
+        {
+          "id": "P02",
+          "agent": "Auditor de Calibração e Backtesting",
+          "layer": "Previsão",
+          "mission": "medir desempenho prospectivo, falsos positivos, taxas de base, timing e robustez fora da amostra.",
+          "activation": "Após desfecho observável ou antes de alegar desempenho.",
+          "qa_count": 3
+        },
+        {
+          "id": "H01",
+          "agent": "Historiador do Hermetismo, Magia Planetária e Teurgia",
+          "layer": "Hermetismo",
+          "mission": "contextualizar Hermetismo tardo-antigo, renascentista, magia planetária, teurgia e talismânica com desenho ritual seguro.",
+          "activation": "Relatório hermético, mágico ou ritual historicamente fundamentado.",
+          "qa_count": 3
+        },
+        {
+          "id": "H02",
+          "agent": "Especialista em Qabalah Hermética e Golden Dawn",
+          "layer": "Hermetismo",
+          "mission": "interpretar Árvore, caminhos, letras, escalas, decanatos e correspondências GD como sistema próprio.",
+          "activation": "Produto GD, qabalístico, decânico ou correspondencial.",
+          "qa_count": 3
+        },
+        {
+          "id": "H03",
+          "agent": "Especialista em Thelema, Crowley e Thoth",
+          "layer": "Hermetismo",
+          "mission": "interpretar Liber 777, Book of Thoth e correspondências thelêmicas sem universalizá-las.",
+          "activation": "Produto thelêmico, Thoth ou comparação GD-Thelema.",
+          "qa_count": 3
+        },
+        {
+          "id": "T01",
+          "agent": "Especialista em História, Sistemas e Método do Tarot",
+          "layer": "Tarot",
+          "mission": "operar história/iconografia e leitura estratégica em modos separados, incluindo o protocolo de tiragem do projeto.",
+          "activation": "Leitura tarológica ou integração Tarot×astrologia explicitamente pedida.",
+          "qa_count": 4
+        },
+        {
+          "id": "N01",
+          "agent": "Especialista em Ciências e Correspondências Naturais",
+          "layer": "Materiais naturais",
+          "mission": "manter lanes separadas para mineralogia/botânica/segurança e para usos históricos e correspondências esotéricas.",
+          "activation": "Relatório de cristais, ervas, metais, incensos, óleos ou correspondências.",
+          "qa_count": 3
+        },
+        {
+          "id": "E01",
+          "agent": "Editor-Chefe, Técnico e de Acessibilidade",
+          "layer": "Editorial",
+          "mission": "transformar claims aprovados em pacote editorial canônico e versões N1-N4 sem alterar significado ou confiança.",
+          "activation": "Todo produto destinado a cliente ou publicação.",
+          "qa_count": 3
+        },
+        {
+          "id": "V01",
+          "agent": "Designer de Informação, Cartógrafo e Diretor de Arte",
+          "layer": "Visual",
+          "mission": "governar design system, cartografia, visualização e direção visual sem distorcer escala, incerteza ou semântica.",
+          "activation": "Produto com mapa, gráfico, diagrama, identidade ou peça visual.",
+          "qa_count": 3
+        },
+        {
+          "id": "M01",
+          "agent": "Produtor de Adaptação Multimídia",
+          "layer": "Mídia e marketing",
+          "mission": "converter o pacote editorial aprovado em carrossel, vídeo, podcast, quadrinho, flyer e landing page sem mudar claims.",
+          "activation": "Campanha ou adaptação multimídia aprovada.",
+          "qa_count": 3
+        },
+        {
+          "id": "M02",
+          "agent": "Estrategista de Marca, Produto, Marketing e Analytics",
+          "layer": "Mídia e marketing",
+          "mission": "definir audiência, proposta de valor, oferta, canais, pricing, métricas e experimentos sem inflar certeza.",
+          "activation": "Produto comercial, campanha, pricing ou análise de desempenho.",
+          "qa_count": 3
+        },
+        {
+          "id": "Q01",
+          "agent": "Auditor Computacional, Astronômico e de Reprodutibilidade",
+          "layer": "QA",
+          "mission": "recomputar amostras críticas, conferir inputs, versões, tolerâncias, GIS, gráficos e métricas preditivas.",
+          "activation": "Antes de qualquer interpretação ou entrega baseada em cálculo.",
+          "qa_count": 5
+        },
+        {
+          "id": "Q02",
+          "agent": "Auditor de Evidências, Astrologia, História e Tradições",
+          "layer": "QA",
+          "mission": "verificar citações, entailment, coerência astrológica, genealogias e separação Hermetismo-GD-Thelema-Tarot.",
+          "activation": "Antes do claim freeze editorial.",
+          "qa_count": 3
+        },
+        {
+          "id": "Q03",
+          "agent": "Auditor Epistemológico, Preditivo, de Privacidade e Segurança",
+          "layer": "QA",
+          "mission": "separar fato/cálculo/símbolo/inferência, controlar incerteza, consentimento, memória, saúde e segurança ritual.",
+          "activation": "Produto sensível, preditivo, relacional, natural, ritual ou com dados pessoais.",
+          "qa_count": 5
+        },
+        {
+          "id": "Q04",
+          "agent": "Auditor Editorial, Visual, Comercial e de Release",
+          "layer": "QA",
+          "mission": "aprovar, devolver ou bloquear o artefato final por fidelidade, acessibilidade, cartografia, promessa, direitos e integridade de release.",
+          "activation": "Toda entrega externa ou publicação.",
+          "qa_count": 4
+        }
+      ],
+      "gates": [
+        {
+          "id": "G00",
+          "gate": "Escopo, autoridade e consentimento",
+          "approve": "finalidade, partes e uso definidos",
+          "block": "consentimento ou autoridade ausente"
+        },
+        {
+          "id": "G01",
+          "gate": "Namespace, isolamento e integridade",
+          "approve": "IDs, hashes e acesso mínimo",
+          "block": "mistura de clientes ou artefato sem lineage"
+        },
+        {
+          "id": "G02",
+          "gate": "Dados natais, tempo e geografia",
+          "approve": "cenário temporal/geográfico resolvido",
+          "block": "ambiguidade silenciosa ou precisão inventada"
+        },
+        {
+          "id": "G03",
+          "gate": "Reprodutibilidade computacional",
+          "approve": "versões, flags, tolerâncias e fixtures",
+          "block": "cálculo material não reproduzível"
+        },
+        {
+          "id": "G04",
+          "gate": "Fontes, citações e proveniência",
+          "approve": "claim ligado a obra, edição e página",
+          "block": "fonte inexistente, inadequada ou não localizada"
+        },
+        {
+          "id": "G05",
+          "gate": "Tradições, decks e genealogias",
+          "approve": "namespace e conflitos preservados",
+          "block": "harmonização artificial ou deck incompatível"
+        },
+        {
+          "id": "G06",
+          "gate": "Coerência interpretativa",
+          "approve": "método e alternativas explícitos",
+          "block": "claim sem cálculo/método ou contradição ocultada"
+        },
+        {
+          "id": "G07",
+          "gate": "Epistemologia, saúde e segurança",
+          "approve": "fato/cálculo/símbolo/inferência separados",
+          "block": "diagnóstico, cura, coerção ou risco material"
+        },
+        {
+          "id": "G08",
+          "gate": "Predição, calibração e timing",
+          "approve": "alvo, janela, base rate e configuração congelados",
+          "block": "certeza, look-ahead ou probabilidade não calibrada"
+        },
+        {
+          "id": "G09",
+          "gate": "Tarot e protocolo",
+          "approve": "pergunta, método, corte, unicidade e posições",
+          "block": "abertura pré-corte, repetição ou deck não definido"
+        },
+        {
+          "id": "G10",
+          "gate": "Editorial, visual e acessibilidade",
+          "approve": "equivalência, escala, contraste e descrições",
+          "block": "distorção, clipping ou dependência só de cor/som"
+        },
+        {
+          "id": "G11",
+          "gate": "Comercial, direitos e instrumentação",
+          "approve": "promessa responsável, licenças e métricas",
+          "block": "garantia, direito ausente ou coleta não consentida"
+        },
+        {
+          "id": "G12",
+          "gate": "Release independente",
+          "approve": "Q01-Q04 concluídos e manifest imutável",
+          "block": "autoaprovação ou bloqueio aberto"
+        }
+      ],
+      "product_load": [
+        {
+          "product": "acontecimentos",
+          "active_agents": 14
+        },
+        {
+          "product": "hermetico",
+          "active_agents": 12
+        },
+        {
+          "product": "previsao",
+          "active_agents": 12
+        },
+        {
+          "product": "locacional",
+          "active_agents": 11
+        },
+        {
+          "product": "natal",
+          "active_agents": 11
+        },
+        {
+          "product": "sinastria",
+          "active_agents": 9
+        },
+        {
+          "product": "midia",
+          "active_agents": 8
+        },
+        {
+          "product": "marketing",
+          "active_agents": 7
+        }
+      ],
+      "candidate_scores": [
+        {
+          "candidate_id": "C01",
+          "candidate": "Direcao Epistemologica e Arquitetura",
+          "score": 47,
+          "final_id": "O01",
+          "disposition": "FUSE"
+        },
+        {
+          "candidate_id": "C02",
+          "candidate": "Orquestracao de Casos e Produtos",
+          "score": 46,
+          "final_id": "O01",
+          "disposition": "FUSE"
+        },
+        {
+          "candidate_id": "C03",
+          "candidate": "Governanca de Dados Memoria e Privacidade",
+          "score": 47,
+          "final_id": "Q03",
+          "disposition": "REORGANIZE"
+        },
+        {
+          "candidate_id": "C04",
+          "candidate": "Pesquisa Historico-Academica",
+          "score": 44,
+          "final_id": "R01",
+          "disposition": "KEEP"
+        },
+        {
+          "candidate_id": "C05",
+          "candidate": "Pesquisa Contemporanea e Profissional",
+          "score": 41,
+          "final_id": "R02",
+          "disposition": "KEEP"
+        },
+        {
+          "candidate_id": "C06",
+          "candidate": "Verificacao Independente de Evidencias e Citacoes",
+          "score": 47,
+          "final_id": "Q02",
+          "disposition": "MERGE_QA"
+        },
+        {
+          "candidate_id": "C07",
+          "candidate": "Astrologia Natal Integrativa",
+          "score": 45,
+          "final_id": "A01",
+          "disposition": "KEEP"
+        },
+        {
+          "candidate_id": "C08",
+          "candidate": "Astrologia Tradicional Helenistica e Medieval",
+          "score": 44,
+          "final_id": "A02",
+          "disposition": "KEEP"
+        },
+        {
+          "candidate_id": "C09",
+          "candidate": "Astrologia Psicologica e Evolutiva",
+          "score": 43,
+          "final_id": "A03",
+          "disposition": "KEEP_MODES"
+        },
+        {
+          "candidate_id": "C10",
+          "candidate": "Astrologia Relacional",
+          "score": 44,
+          "final_id": "A04",
+          "disposition": "KEEP"
+        },
+        {
+          "candidate_id": "C11",
+          "candidate": "Astrologia Temporal Moderna",
+          "score": 48,
+          "final_id": "A05",
+          "disposition": "KEEP"
+        },
+        {
+          "candidate_id": "C12",
+          "candidate": "Tecnicas Temporais Tradicionais",
+          "score": 48,
+          "final_id": "A06",
+          "disposition": "KEEP"
+        },
+        {
+          "candidate_id": "C13",
+          "candidate": "Astrologia Horaria e Eletiva",
+          "score": 44,
+          "final_id": "A07",
+          "disposition": "KEEP_MODES"
+        },
+        {
+          "candidate_id": "C14",
+          "candidate": "Astrologia Mundana de Acontecimentos e Historica",
+          "score": 46,
+          "final_id": "A08",
+          "disposition": "KEEP"
+        },
+        {
+          "candidate_id": "C15",
+          "candidate": "Astrologia Locacional e Cartografica",
+          "score": 50,
+          "final_id": "A09",
+          "disposition": "KEEP"
+        },
+        {
+          "candidate_id": "C16",
+          "candidate": "Integracao Preditiva e Timing",
+          "score": 49,
+          "final_id": "P01",
+          "disposition": "KEEP"
+        },
+        {
+          "candidate_id": "C17",
+          "candidate": "Calibracao e Backtesting",
+          "score": 50,
+          "final_id": "P02",
+          "disposition": "KEEP"
+        },
+        {
+          "candidate_id": "C18",
+          "candidate": "Hermetismo Historico",
+          "score": 44,
+          "final_id": "H01",
+          "disposition": "FUSE"
+        },
+        {
+          "candidate_id": "C19",
+          "candidate": "Qabalah Hermetica e Golden Dawn",
+          "score": 45,
+          "final_id": "H02",
+          "disposition": "KEEP"
+        },
+        {
+          "candidate_id": "C20",
+          "candidate": "Thelema Crowley e Thoth",
+          "score": 45,
+          "final_id": "H03",
+          "disposition": "KEEP"
+        },
+        {
+          "candidate_id": "C21",
+          "candidate": "Magia Planetaria Teurgia e Talismanica",
+          "score": 43,
+          "final_id": "H01",
+          "disposition": "FUSE"
+        },
+        {
+          "candidate_id": "C22",
+          "candidate": "Tarot Historico Iconografico e Comparativo",
+          "score": 41,
+          "final_id": "T01",
+          "disposition": "FUSE"
+        },
+        {
+          "candidate_id": "C23",
+          "candidate": "Tarot Estrategico e Tecnicas de Tiragem",
+          "score": 45,
+          "final_id": "T01",
+          "disposition": "FUSE"
+        },
+        {
+          "candidate_id": "C24",
+          "candidate": "Ciencias Naturais Factuais e Seguranca",
+          "score": 46,
+          "final_id": "N01",
+          "disposition": "FUSE_MODES"
+        },
+        {
+          "candidate_id": "C25",
+          "candidate": "Correspondencias Naturais e Materiais",
+          "score": 46,
+          "final_id": "N01",
+          "disposition": "FUSE_MODES"
+        },
+        {
+          "candidate_id": "C26",
+          "candidate": "Editor-Chefe e Arquiteto de Conteudo",
+          "score": 46,
+          "final_id": "E01",
+          "disposition": "FUSE"
+        },
+        {
+          "candidate_id": "C27",
+          "candidate": "Editor Tecnico Linguagem Clara e Acessibilidade",
+          "score": 46,
+          "final_id": "E01",
+          "disposition": "FUSE"
+        },
+        {
+          "candidate_id": "C28",
+          "candidate": "Direcao de Arte e Design System",
+          "score": 46,
+          "final_id": "V01",
+          "disposition": "FUSE"
+        },
+        {
+          "candidate_id": "C29",
+          "candidate": "Cartografia e Visualizacao de Informacao",
+          "score": 50,
+          "final_id": "V01",
+          "disposition": "FUSE"
+        },
+        {
+          "candidate_id": "C30",
+          "candidate": "Produtor Transmidia",
+          "score": 47,
+          "final_id": "M01",
+          "disposition": "KEEP"
+        },
+        {
+          "candidate_id": "C31",
+          "candidate": "Estrategia de Marca Produto e Pricing",
+          "score": 46,
+          "final_id": "M02",
+          "disposition": "FUSE"
+        },
+        {
+          "candidate_id": "C32",
+          "candidate": "Growth Distribuicao e Analytics",
+          "score": 48,
+          "final_id": "M02",
+          "disposition": "FUSE"
+        },
+        {
+          "candidate_id": "C33",
+          "candidate": "Auditor Quantitativo Astronomico e Preditivo",
+          "score": 48,
+          "final_id": "Q01",
+          "disposition": "KEEP"
+        },
+        {
+          "candidate_id": "C34",
+          "candidate": "Auditor Astrologico Historico Hermetico e Epistemologico",
+          "score": 47,
+          "final_id": "Q02",
+          "disposition": "EXPAND"
+        },
+        {
+          "candidate_id": "C35",
+          "candidate": "Auditor de Publicacao Etica e Compliance",
+          "score": 48,
+          "final_id": "Q03_Q04",
+          "disposition": "SPLIT"
+        }
+      ],
+      "fusions": [
+        {
+          "from": "C01, C02",
+          "to": "O01",
+          "reason": "mesmos contratos de arquitetura, decisão e escalada; uma fila operacional"
+        },
+        {
+          "from": "C06, C34",
+          "to": "Q02",
+          "reason": "verificação de evidências é revisão independente, não pesquisa produtora"
+        },
+        {
+          "from": "C18, C21",
+          "to": "H01",
+          "reason": "história e aplicação ritual segura compartilham corpus; gates impedem promessa"
+        },
+        {
+          "from": "C22, C23",
+          "to": "T01",
+          "reason": "modos histórico e aplicado; RNG permanece motor separado"
+        },
+        {
+          "from": "C24, C25",
+          "to": "N01",
+          "reason": "duas lanes internas factuais e simbólicas; frases nunca se misturam"
+        },
+        {
+          "from": "C26, C27",
+          "to": "E01",
+          "reason": "mesma saída canônica, claim lock e público; Q04 audita"
+        },
+        {
+          "from": "C28, C29",
+          "to": "V01",
+          "reason": "design e cartografia unificados por semântica; Q01/Q04 auditam"
+        },
+        {
+          "from": "C31, C32",
+          "to": "M02",
+          "reason": "estratégia e mensuração formam um ciclo; Q04 controla autoavaliação"
+        }
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": "src_report",
+      "label": "Relatório técnico da arquitetura (GitHub, branch provisória)",
+      "href": "https://github.com/chiquitogomes/pirah-oraculatrix/blob/work/laboratorio-arquitetura-v1/docs/architecture_report.md",
+      "query": {
+        "language": "markdown",
+        "description": "Síntese técnica derivada do comando mestre e das seis auditorias temporárias.",
+        "tables_used": [
+          "docs/architecture_report.md"
+        ],
+        "executed_at": "2026-08-28T03:26:43Z"
+      }
+    },
+    {
+      "id": "src_registry_doc",
+      "label": "Registro contratual dos agentes e componentes",
+      "href": "https://github.com/chiquitogomes/pirah-oraculatrix/blob/work/laboratorio-arquitetura-v1/config/agent_registry.json",
+      "query": {
+        "language": "json",
+        "description": "Registro provisório de agentes, motores, bases, skills, gates e matriz de produtos.",
+        "tables_used": [
+          "config/agent_registry.json",
+          "config/motors.json",
+          "config/bases.json",
+          "config/skills.json",
+          "config/gates.json",
+          "config/product_matrix.json"
+        ],
+        "executed_at": "2026-08-28T03:26:43Z"
+      }
+    },
+    {
+      "id": "src_command",
+      "label": "Comando mestre anexado em 28 de agosto de 2026",
+      "query": {
+        "language": "markdown",
+        "description": "Especificação arquitetural fornecida pelo usuário; arquivo privado não publicado.",
+        "executed_at": "2026-08-28T03:26:43Z"
+      }
+    },
+    {
+      "id": "src_headline",
+      "label": "Contagens arquiteturais recomputadas",
+      "href": "https://github.com/chiquitogomes/pirah-oraculatrix/blob/work/laboratorio-arquitetura-v1/data/analysis_summary.json",
+      "query": {
+        "engine": "SQLite",
+        "language": "sql",
+        "sql": "SELECT 27 AS agents, 18 AS motors, 10 AS bases, 16 AS skills, 13 AS gates, 35 AS candidate_roles, 595 AS pairwise_comparisons;",
+        "description": "Contagens da arquitetura profissional e da auditoria.",
+        "tables_used": [
+          "literal_values"
+        ],
+        "metric_definitions": [
+          "agentes = papéis lógicos únicos no registro",
+          "pares = n(n-1)/2 para n=35"
+        ],
+        "executed_at": "2026-08-28T03:26:43Z"
+      }
+    },
+    {
+      "id": "src_scenarios",
+      "label": "Três cenários arquiteturais",
+      "href": "https://github.com/chiquitogomes/pirah-oraculatrix/blob/work/laboratorio-arquitetura-v1/data/scenarios.json",
+      "query": {
+        "engine": "SQLite",
+        "language": "sql",
+        "sql": "WITH source(scenario, agents, motors, bases, skills, gates, relative_cost, use) AS (\n  VALUES\n    ('Essencial', 15, 12, 7, 10, 8, 1.0, 'piloto premium de baixo volume'),\n    ('Profissional recomendada', 27, 18, 10, 16, 13, 1.9, 'equilíbrio entre especialização, independência e coordenação'),\n    ('Máxima eficiente', 42, 22, 15, 24, 16, 3.4, 'alto volume, pesquisa autoral e múltiplos produtos simultâneos')\n)\nSELECT * FROM source;",
+        "description": "Tabela limitada dos cenários essencial, profissional e máximo.",
+        "tables_used": [
+          "literal_values"
+        ],
+        "executed_at": "2026-08-28T03:26:43Z"
+      }
+    },
+    {
+      "id": "src_agents",
+      "label": "Registro dos 27 agentes",
+      "href": "https://github.com/chiquitogomes/pirah-oraculatrix/blob/work/laboratorio-arquitetura-v1/config/agent_registry.json",
+      "query": {
+        "engine": "SQLite",
+        "language": "sql",
+        "sql": "WITH source(id, agent, layer, mission, activation, qa_count) AS (\n  VALUES\n    ('O01', 'Orquestrador-Arquiteto de Casos e Produtos', 'Direção', 'governar método, escopo, roteamento, contratos e síntese do workflow sem ultrapassar gates independentes.', 'Todo produto novo, caso complexo ou conflito de método.', 3),\n    ('R01', 'Pesquisador Histórico-Acadêmico e Genealogista', 'Pesquisa', 'localizar fontes primárias, edições críticas, pesquisa acadêmica e reconstruir genealogias e controvérsias.', 'Alegação histórica, genealogia, tradição ou correspondência relevante.', 2),\n    ('R02', 'Pesquisador Contemporâneo, Profissional, Web e Comunidades', 'Pesquisa', 'mapear literatura profissional, escolas atuais, web especializada, conferências e hipóteses de comunidades.', 'Quando o produto exige prática atual, autor contemporâneo ou técnica emergente.', 2),\n    ('A01', 'Astrólogo Natal Integrativo', 'Astrologia', 'integrar a arquitetura central do mapa e pareceres especializados sem apagar divergências entre escolas.', 'Relatório natal, base de sinastria, previsão ou locacional.', 3),\n    ('A02', 'Astrólogo Tradicional, Helenístico e Medieval', 'Astrologia', 'aplicar linhagens tradicionais em modos isolados, com dignidades, secto, recepções, lotes e regras próprias.', 'Quando o método tradicional integra o produto.', 3),\n    ('A03', 'Astrólogo Psicológico e Evolutivo', 'Astrologia', 'operar modos psicológico e evolutivo separados, como interpretações simbólicas não clínicas.', 'Leitura psicológica ou evolutiva explicitamente pedida.', 3),\n    ('A04', 'Astrólogo Relacional', 'Astrologia', 'integrar sinastria, composto e Davison sob consentimento e sem reduzir pessoas ao vínculo.', 'Sinastria, composto, Davison ou dinâmica de parceria.', 4),\n    ('A05', 'Astrólogo Temporal Moderno', 'Astrologia', 'produzir testemunhos de trânsitos, progressões, direções, arcos e retornos a partir de técnicas congeladas.', 'Previsão anual, mensal, ciclos ou análise de janela.', 3),\n    ('A06', 'Astrólogo Temporal Tradicional', 'Astrologia', 'aplicar profecções, firdaria e cronocratores segundo regras históricas declaradas.', 'Quando técnicas temporais tradicionais forem pertinentes.', 4),\n    ('A07', 'Astrólogo Horário e Eletivo', 'Astrologia', 'operar dois modos mutuamente exclusivos: juízo horário ou busca de eleições viáveis sob restrições reais.', 'Pergunta horária proporcional ou decisão eletiva com restrições.', 4),\n    ('A08', 'Astrólogo Mundano, de Acontecimentos e Histórico', 'Astrologia', 'analisar coletivos e eventos com cronologia factual congelada antes da leitura astrológica.', 'Evento coletivo, cronologia ou caso histórico complexo.', 4),\n    ('A09', 'Astrólogo Locacional e Cartográfico', 'Astrologia', 'integrar astrocartografia, relocação, Local Space, parans e comparação de lugares com incerteza propagada.', 'Astrocartografia, relocação ou comparação de cidades.', 4),\n    ('P01', 'Integrador Preditivo e de Timing', 'Previsão', 'comparar convergência, divergência, gatilhos e janelas sem recalcular ou escolher técnicas após o resultado.', 'Produto preditivo ou decisão temporal com múltiplas técnicas.', 3),\n    ('P02', 'Auditor de Calibração e Backtesting', 'Previsão', 'medir desempenho prospectivo, falsos positivos, taxas de base, timing e robustez fora da amostra.', 'Após desfecho observável ou antes de alegar desempenho.', 3),\n    ('H01', 'Historiador do Hermetismo, Magia Planetária e Teurgia', 'Hermetismo', 'contextualizar Hermetismo tardo-antigo, renascentista, magia planetária, teurgia e talismânica com desenho ritual seguro.', 'Relatório hermético, mágico ou ritual historicamente fundamentado.', 3),\n    ('H02', 'Especialista em Qabalah Hermética e Golden Dawn', 'Hermetismo', 'interpretar Árvore, caminhos, letras, escalas, decanatos e correspondências GD como sistema próprio.', 'Produto GD, qabalístico, decânico ou correspondencial.', 3),\n    ('H03', 'Especialista em Thelema, Crowley e Thoth', 'Hermetismo', 'interpretar Liber 777, Book of Thoth e correspondências thelêmicas sem universalizá-las.', 'Produto thelêmico, Thoth ou comparação GD-Thelema.', 3),\n    ('T01', 'Especialista em História, Sistemas e Método do Tarot', 'Tarot', 'operar história/iconografia e leitura estratégica em modos separados, incluindo o protocolo de tiragem do projeto.', 'Leitura tarológica ou integração Tarot×astrologia explicitamente pedida.', 4),\n    ('N01', 'Especialista em Ciências e Correspondências Naturais', 'Materiais naturais', 'manter lanes separadas para mineralogia/botânica/segurança e para usos históricos e correspondências esotéricas.', 'Relatório de cristais, ervas, metais, incensos, óleos ou correspondências.', 3),\n    ('E01', 'Editor-Chefe, Técnico e de Acessibilidade', 'Editorial', 'transformar claims aprovados em pacote editorial canônico e versões N1-N4 sem alterar significado ou confiança.', 'Todo produto destinado a cliente ou publicação.', 3),\n    ('V01', 'Designer de Informação, Cartógrafo e Diretor de Arte', 'Visual', 'governar design system, cartografia, visualização e direção visual sem distorcer escala, incerteza ou semântica.', 'Produto com mapa, gráfico, diagrama, identidade ou peça visual.', 3),\n    ('M01', 'Produtor de Adaptação Multimídia', 'Mídia e marketing', 'converter o pacote editorial aprovado em carrossel, vídeo, podcast, quadrinho, flyer e landing page sem mudar claims.', 'Campanha ou adaptação multimídia aprovada.', 3),\n    ('M02', 'Estrategista de Marca, Produto, Marketing e Analytics', 'Mídia e marketing', 'definir audiência, proposta de valor, oferta, canais, pricing, métricas e experimentos sem inflar certeza.', 'Produto comercial, campanha, pricing ou análise de desempenho.', 3),\n    ('Q01', 'Auditor Computacional, Astronômico e de Reprodutibilidade', 'QA', 'recomputar amostras críticas, conferir inputs, versões, tolerâncias, GIS, gráficos e métricas preditivas.', 'Antes de qualquer interpretação ou entrega baseada em cálculo.', 5),\n    ('Q02', 'Auditor de Evidências, Astrologia, História e Tradições', 'QA', 'verificar citações, entailment, coerência astrológica, genealogias e separação Hermetismo-GD-Thelema-Tarot.', 'Antes do claim freeze editorial.', 3),\n    ('Q03', 'Auditor Epistemológico, Preditivo, de Privacidade e Segurança', 'QA', 'separar fato/cálculo/símbolo/inferência, controlar incerteza, consentimento, memória, saúde e segurança ritual.', 'Produto sensível, preditivo, relacional, natural, ritual ou com dados pessoais.', 5),\n    ('Q04', 'Auditor Editorial, Visual, Comercial e de Release', 'QA', 'aprovar, devolver ou bloquear o artefato final por fidelidade, acessibilidade, cartografia, promessa, direitos e integridade de release.', 'Toda entrega externa ou publicação.', 4)\n)\nSELECT * FROM source;",
+        "description": "Projeção auditável do registro de agentes.",
+        "tables_used": [
+          "literal_values"
+        ],
+        "executed_at": "2026-08-28T03:26:43Z"
+      }
+    },
+    {
+      "id": "src_gates",
+      "label": "Registro dos treze gates",
+      "href": "https://github.com/chiquitogomes/pirah-oraculatrix/blob/work/laboratorio-arquitetura-v1/config/gates.json",
+      "query": {
+        "engine": "SQLite",
+        "language": "sql",
+        "sql": "WITH source(id, gate, approve, block) AS (\n  VALUES\n    ('G00', 'Escopo, autoridade e consentimento', 'finalidade, partes e uso definidos', 'consentimento ou autoridade ausente'),\n    ('G01', 'Namespace, isolamento e integridade', 'IDs, hashes e acesso mínimo', 'mistura de clientes ou artefato sem lineage'),\n    ('G02', 'Dados natais, tempo e geografia', 'cenário temporal/geográfico resolvido', 'ambiguidade silenciosa ou precisão inventada'),\n    ('G03', 'Reprodutibilidade computacional', 'versões, flags, tolerâncias e fixtures', 'cálculo material não reproduzível'),\n    ('G04', 'Fontes, citações e proveniência', 'claim ligado a obra, edição e página', 'fonte inexistente, inadequada ou não localizada'),\n    ('G05', 'Tradições, decks e genealogias', 'namespace e conflitos preservados', 'harmonização artificial ou deck incompatível'),\n    ('G06', 'Coerência interpretativa', 'método e alternativas explícitos', 'claim sem cálculo/método ou contradição ocultada'),\n    ('G07', 'Epistemologia, saúde e segurança', 'fato/cálculo/símbolo/inferência separados', 'diagnóstico, cura, coerção ou risco material'),\n    ('G08', 'Predição, calibração e timing', 'alvo, janela, base rate e configuração congelados', 'certeza, look-ahead ou probabilidade não calibrada'),\n    ('G09', 'Tarot e protocolo', 'pergunta, método, corte, unicidade e posições', 'abertura pré-corte, repetição ou deck não definido'),\n    ('G10', 'Editorial, visual e acessibilidade', 'equivalência, escala, contraste e descrições', 'distorção, clipping ou dependência só de cor/som'),\n    ('G11', 'Comercial, direitos e instrumentação', 'promessa responsável, licenças e métricas', 'garantia, direito ausente ou coleta não consentida'),\n    ('G12', 'Release independente', 'Q01-Q04 concluídos e manifest imutável', 'autoaprovação ou bloqueio aberto')\n)\nSELECT * FROM source;",
+        "description": "Critérios de aprovação e bloqueio por gate.",
+        "tables_used": [
+          "literal_values"
+        ],
+        "executed_at": "2026-08-28T03:26:43Z"
+      }
+    },
+    {
+      "id": "src_product",
+      "label": "Carga de agentes por produto",
+      "href": "https://github.com/chiquitogomes/pirah-oraculatrix/blob/work/laboratorio-arquitetura-v1/data/product_active_counts.csv",
+      "query": {
+        "engine": "SQLite",
+        "language": "sql",
+        "sql": "WITH source(product, active_agents) AS (\n  VALUES\n    ('acontecimentos', 14),\n    ('hermetico', 12),\n    ('previsao', 12),\n    ('locacional', 11),\n    ('natal', 11),\n    ('sinastria', 9),\n    ('midia', 8),\n    ('marketing', 7)\n)\nSELECT * FROM source;",
+        "description": "Contagem dos agentes acionados por padrão em cada família de produto.",
+        "tables_used": [
+          "literal_values"
+        ],
+        "metric_definitions": [
+          "active_agents = número de IDs únicos na matriz agente × produto"
+        ],
+        "executed_at": "2026-08-28T03:26:43Z"
+      }
+    },
+    {
+      "id": "src_scores",
+      "label": "Escores das 35 candidaturas",
+      "href": "https://github.com/chiquitogomes/pirah-oraculatrix/blob/work/laboratorio-arquitetura-v1/data/candidate_scores.csv",
+      "query": {
+        "engine": "SQLite",
+        "language": "sql",
+        "sql": "WITH source(candidate_id, candidate, score, final_id, disposition) AS (\n  VALUES\n    ('C01', 'Direcao Epistemologica e Arquitetura', 47, 'O01', 'FUSE'),\n    ('C02', 'Orquestracao de Casos e Produtos', 46, 'O01', 'FUSE'),\n    ('C03', 'Governanca de Dados Memoria e Privacidade', 47, 'Q03', 'REORGANIZE'),\n    ('C04', 'Pesquisa Historico-Academica', 44, 'R01', 'KEEP'),\n    ('C05', 'Pesquisa Contemporanea e Profissional', 41, 'R02', 'KEEP'),\n    ('C06', 'Verificacao Independente de Evidencias e Citacoes', 47, 'Q02', 'MERGE_QA'),\n    ('C07', 'Astrologia Natal Integrativa', 45, 'A01', 'KEEP'),\n    ('C08', 'Astrologia Tradicional Helenistica e Medieval', 44, 'A02', 'KEEP'),\n    ('C09', 'Astrologia Psicologica e Evolutiva', 43, 'A03', 'KEEP_MODES'),\n    ('C10', 'Astrologia Relacional', 44, 'A04', 'KEEP'),\n    ('C11', 'Astrologia Temporal Moderna', 48, 'A05', 'KEEP'),\n    ('C12', 'Tecnicas Temporais Tradicionais', 48, 'A06', 'KEEP'),\n    ('C13', 'Astrologia Horaria e Eletiva', 44, 'A07', 'KEEP_MODES'),\n    ('C14', 'Astrologia Mundana de Acontecimentos e Historica', 46, 'A08', 'KEEP'),\n    ('C15', 'Astrologia Locacional e Cartografica', 50, 'A09', 'KEEP'),\n    ('C16', 'Integracao Preditiva e Timing', 49, 'P01', 'KEEP'),\n    ('C17', 'Calibracao e Backtesting', 50, 'P02', 'KEEP'),\n    ('C18', 'Hermetismo Historico', 44, 'H01', 'FUSE'),\n    ('C19', 'Qabalah Hermetica e Golden Dawn', 45, 'H02', 'KEEP'),\n    ('C20', 'Thelema Crowley e Thoth', 45, 'H03', 'KEEP'),\n    ('C21', 'Magia Planetaria Teurgia e Talismanica', 43, 'H01', 'FUSE'),\n    ('C22', 'Tarot Historico Iconografico e Comparativo', 41, 'T01', 'FUSE'),\n    ('C23', 'Tarot Estrategico e Tecnicas de Tiragem', 45, 'T01', 'FUSE'),\n    ('C24', 'Ciencias Naturais Factuais e Seguranca', 46, 'N01', 'FUSE_MODES'),\n    ('C25', 'Correspondencias Naturais e Materiais', 46, 'N01', 'FUSE_MODES'),\n    ('C26', 'Editor-Chefe e Arquiteto de Conteudo', 46, 'E01', 'FUSE'),\n    ('C27', 'Editor Tecnico Linguagem Clara e Acessibilidade', 46, 'E01', 'FUSE'),\n    ('C28', 'Direcao de Arte e Design System', 46, 'V01', 'FUSE'),\n    ('C29', 'Cartografia e Visualizacao de Informacao', 50, 'V01', 'FUSE'),\n    ('C30', 'Produtor Transmidia', 47, 'M01', 'KEEP'),\n    ('C31', 'Estrategia de Marca Produto e Pricing', 46, 'M02', 'FUSE'),\n    ('C32', 'Growth Distribuicao e Analytics', 48, 'M02', 'FUSE'),\n    ('C33', 'Auditor Quantitativo Astronomico e Preditivo', 48, 'Q01', 'KEEP'),\n    ('C34', 'Auditor Astrologico Historico Hermetico e Epistemologico', 47, 'Q02', 'EXPAND'),\n    ('C35', 'Auditor de Publicacao Etica e Compliance', 48, 'Q03_Q04', 'SPLIT')\n)\nSELECT * FROM source;",
+        "description": "Escores e destino arquitetural das candidaturas.",
+        "tables_used": [
+          "literal_values"
+        ],
+        "metric_definitions": [
+          "score = soma de dez critérios de 0 a 5"
+        ],
+        "executed_at": "2026-08-28T03:26:43Z"
+      }
+    }
+  ],
+  "package_info": {
+    "artifact_status": "DRAFT_ARCHITECTURE_V1",
+    "snapshot_note": "Published snapshot; not a live connector."
+  }
+}
+
